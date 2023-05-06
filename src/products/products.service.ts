@@ -1,9 +1,11 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 
 import { Product } from './product.model';
 
 @Injectable()
 export class ProductsService {
+  private readonly logger = new Logger(ProductsService.name);
+
   products: Product[] = [];
 
   insertProduct(title: string, desc: string, price: number): string {
@@ -14,6 +16,7 @@ export class ProductsService {
   }
 
   getProducts() {
+    this.logger.debug('getting all products');
     return [...this.products];
   }
 
