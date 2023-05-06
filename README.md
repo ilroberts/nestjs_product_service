@@ -29,7 +29,7 @@
 ## Installation
 
 ```bash
-$ npm install
+npm install
 ```
 
 ## Running the app
@@ -61,6 +61,8 @@ $ npm run test:cov
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+Got the information to build the docker file [from here](https://www.tomray.dev/nestjs-docker-production)
 
 ## Stay in touch
 
