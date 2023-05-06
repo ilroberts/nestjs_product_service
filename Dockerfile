@@ -2,12 +2,14 @@ FROM node:bullseye-slim
 
 WORKDIR /src
 
-COPY package*.json ./
+COPY --chown=node:node package*.json ./
 
-RUN npm install
+RUN npm ci
 
-COPY . .
+COPY --chown=node:node . .
 
 RUN npm run build
+
+USER node
 
 CMD ["node", "dist/main.js"]
