@@ -15,7 +15,7 @@ export class ProductsService {
 
   async createProduct(createProductDto: CreateProductDto): Promise<IProduct> {
     this.logger.debug('creating a new product');
-    const newProduct = await new this.productModel(createProductDto);
+    const newProduct = new this.productModel(createProductDto);
     return newProduct.save();
   }
 
@@ -36,7 +36,7 @@ export class ProductsService {
     const existingProduct = await this.productModel.findById(productId).exec();
 
     if (!existingProduct) {
-      this.logger.error(`product with id ${productId} not found`)
+      this.logger.error(`product with id ${productId} not found`);
       throw new NotFoundException(`student #${productId} not found`);
     }
     return existingProduct;
